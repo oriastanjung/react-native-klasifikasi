@@ -14,7 +14,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-const HomeScreen = () => {
+const AboutUsScreen = () => {
   const navigation = useNavigation();
 
   return (
@@ -31,80 +31,44 @@ const HomeScreen = () => {
         source={splashbg}
         style={styles.gridContainer}
       >
-        <View style={styles.row}>
-          <TouchableOpacity
-            style={styles.btn}
-            onPress={() => navigation.navigate("klasifikasiScreen")}
-          >
-            <View style={styles.btnBackground} />
-            <Ionicons
-              name="image-outline"
-              size={84}
-              color="white"
-              style={styles.icon}
-            />
-            <Text style={styles.btnText}>Upload Image</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.btn}
-            onPress={() => navigation.navigate("klasifikasiFileScreen")}
-          >
-            <View style={styles.btnBackground} />
-            <Feather
-              name="file-text"
-              size={84}
-              color="white"
-              style={styles.icon}
-            />
-            <Text style={styles.btnText}>Upload File</Text>
-          </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => navigation.navigate("home")}
+        >
+          <Ionicons name="chevron-back" size={32} color="white" />
+          <Text style={styles.backButtonText}>Kembali Ke Menu Utama</Text>
+        </TouchableOpacity>
+        <View style={{flex : 1, flexDirection : "column", marginTop : 150, backgroundColor : "rgba(0,0,0,0.035)", paddingVertical : 20}}>
+          <Text style={styles.textAboutTitle}>Copyright© UMRAH Mangrove Id Team, 2024</Text>
+          <Text style={styles.textAboutDesc}>- Dony Abdilah</Text>
+          <Text style={styles.textAboutDesc}>- Nola Ritha</Text>
+          <Text style={styles.textAboutDesc}>- Tri Nanda</Text>
+          <Text style={styles.textAboutDesc}>- Alramadan Oloansyah Dasopang</Text>
+          <Text style={styles.textAboutDesc}>- O. Riastanjung</Text>
         </View>
-        <View style={styles.row}>
-          <TouchableOpacity
-            style={styles.btn}
-            onPress={() => navigation.navigate("photoKlasifikasiScreen")}
-          >
-            <View style={styles.btnBackground} />
-            <AntDesign
-              name="camerao"
-              size={84}
-              color="white"
-              style={styles.icon}
-            />
-            <Text style={styles.btnText}>Take Picture</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.btn}
-            onPress={() => navigation.navigate("jenisMangroveScreen")}
-          >
-            <View style={styles.btnBackground} />
-            <MaterialCommunityIcons
-              name="file-document-edit-outline"
-              size={84}
-              color="white"
-              style={styles.icon}
-            />
-            <Text style={styles.btnText}>Species</Text>
-          </TouchableOpacity>
-        </View>
-
         <Image
           source={require("../assets/bottomSplash.png")}
           style={styles.bottomSplash}
         />
-        <TouchableOpacity
-          style={styles.btnAbout}
-          onPress={() => navigation.navigate("aboutUsScreen")}
-        >
-          {/* <View style={styles.btnBackground} /> */}
-          <Text style={styles.btnTextAbout}>?</Text>
-        </TouchableOpacity>
       </ImageBackground>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  backButton: {
+    flexDirection: "row",
+    position: "absolute",
+    top: 50,
+    left: 10,
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: 2,
+  },
+  backButtonText: {
+    color: "white",
+    fontSize: 20,
+  },
   container: {
     flex: 1,
     alignItems: "center",
@@ -135,6 +99,20 @@ const styles = StyleSheet.create({
     fontFamily: "Poppins_900Black",
     color: "white",
   },
+  textAboutTitle: {
+    fontSize: 18,
+    fontFamily: "OpenSans_800ExtraBold",
+    color: "white",
+    textAlign : "center",
+    marginBottom : 30
+  },
+  textAboutDesc: {
+    fontSize: 16,
+    fontFamily: "OpenSans_600SemiBold",
+    color: "white",
+    paddingLeft : 20,
+    marginBottom : 20
+  },
   gridContainer: {
     flex: 1,
     paddingTop: 160,
@@ -142,6 +120,7 @@ const styles = StyleSheet.create({
     width: "100%",
     alignItems: "center",
     justifyContent: "center",
+    
   },
   row: {
     flexDirection: "row",
@@ -167,20 +146,6 @@ const styles = StyleSheet.create({
     height: 160, // Fixed height
     justifyContent: "center", // Center the content vertically
   },
-  btnAbout: {
-    backgroundColor: colors.greenDark,
-    position: "absolute",
-    zIndex : 5,
-    bottom : 0,
-    right : 10,
-    flexDirection: "column",
-    alignItems: "center",
-    borderRadius: 50,
-    margin: 10, // Adds spacing between buttons
-    width: 50, // Fixed width
-    height: 50, // Fixed height
-    justifyContent: "center", // Center the content vertically
-  },
   btnBackground: {
     ...StyleSheet.absoluteFillObject,
     backgroundColor: colors.greenDark,
@@ -199,14 +164,6 @@ const styles = StyleSheet.create({
     zIndex: 1,
     fontWeight: "700",
   },
-  btnTextAbout: {
-    fontFamily: "OpenSans_700Bold",
-    color: "white",
-    fontSize: 32,
-    textAlign: "center",
-    zIndex: 1,
-    fontWeight: "700",
-  },
 });
 
-export default HomeScreen;
+export default AboutUsScreen;

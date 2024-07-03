@@ -23,6 +23,7 @@ import {
 } from "@expo-google-fonts/open-sans";
 
 import {Poppins_900Black} from "@expo-google-fonts/poppins"
+import AboutUsScreen from "./screens/AboutUsScreen";
 
 const Stack = createStackNavigator();
 
@@ -78,6 +79,10 @@ export default function App() {
           <Stack.Screen
             name="photoKlasifikasiScreen"
             component={KlasifikasiPhotoScreen}
+          />
+          <Stack.Screen
+            name="aboutUsScreen"
+            component={AboutUsScreen}
           />
         </Stack.Navigator>
       </NavigationContainer>
